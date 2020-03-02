@@ -2,8 +2,7 @@ public static class Kata
 {
   public static int CountSmileys(string[] smileys) 
   {
-  int smiles = 0;
-  
+  int smiles = 0;  
   for(int i = 0; i < smileys.Length;i++)
   {
     string k = smileys[i].ToString().Trim();
@@ -19,11 +18,8 @@ public static class Kata
             smiles -=1;
           }
         }
-      }
-    
-    }
-    
-
+      }  
+    }   
   }
      return smiles;
   }
