@@ -1,7 +1,7 @@
 public class DivisibleNb {
-	public static bool isDivisible(long n, long x, long y) {
+public static bool isDivisible(long n, long x, long y) {
   bool isit = false;
-		if (n % x == 0 && n % y == 0)
+    if (n % x == 0 && n % y == 0)
     {
       isit = true;
     }
