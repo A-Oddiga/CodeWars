@@ -3,7 +3,7 @@ public class Kata
 {
   public static int DuplicateCount(string str)
   {
-                        str = str.ToLower();
+            str = str.ToLower();
             string add = string.Empty;
             string remain = string.Empty;
             int extra = 0;
