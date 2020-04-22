@@ -1,0 +1,12 @@
+class Kata
+{
+    public static int StrCount(string str, string letter)
+    {
+            int num = 0;
+            foreach (var item in str)
+            {
+                if (item.ToString().Contains(letter)) num += 1;
+            }
+            return num;
+    }
+}
