@@ -1,0 +1,29 @@
+using System.Collections.Generic;
+namespace myjinxin
+{
+    using System;
+    
+    public class Kata
+    {
+        public int Pairwise(int[] arr, int n){
+            int total = 0;
+            List<int> list = new List<int>();
+            for (int i = 0; i < arr.Length; i++)
+            {
+                for (int k = 0; k < arr.Length; k++)
+                {
+                    if(i != k && arr[i] + arr[k] == n && list.Contains(i) == false && list.Contains(k) == false)
+                    {
+                        list.Add(i);
+                        list.Add(k);
+                    }
+                }
+            }
+            foreach (var item in list)
+            {
+                total += item;
+            }
+          return total;         
+        }
+    }
+}
