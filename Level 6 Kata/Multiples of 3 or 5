@@ -1,0 +1,33 @@
+using System.Collections.Generic;
+public static class Kata
+{
+  public static int Solution(int value)
+  {
+            int m3 = 3;
+            int m5 = 5;
+            int total = 0;
+            List<int> list = new List<int>();
+            for (int i = 0; i < value/3; i++)
+            {
+                if(list.Contains(m3) == false)
+                {
+                    list.Add(m3);
+                }               
+                m3 += 3;
+            }
+            for (int i = 0; i < value/5; i++)
+            {          
+                if(list.Contains(m5) == false)
+                {
+                    list.Add(m5);
+                }              
+                m5 += 5;
+            }
+            list.Remove(value);
+            foreach (int number in list)
+            {
+                total += number;
+            }
+        return total;
+  }
+}
