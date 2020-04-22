@@ -1,0 +1,31 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+public static class Kata
+{
+  public static List<string> Grabscrab(string anagram, List<string> dictionary)
+  {
+            int anaNumber = 0;
+            int dictionNumber = 0;
+            List<string> revised = new List<string>();
+            for (int i = 0; i < dictionary.Count; i++)
+            {
+                int checker = 0;
+                bool isWithin = true;
+                do            
+                {
+                    anaNumber = anagram.Count(e => e == anagram[checker]);
+                    dictionNumber = dictionary[i].Count(e => e == anagram[checker]);
+                    if (anaNumber != dictionNumber)
+                    {
+                            isWithin = false;
+                            checker = anagram.Length;                                          
+                    }
+                    checker += 1;
+                } while (checker < anagram.Length);
+                if (isWithin == true) 
+                    revised.Add(dictionary[i]);
+            }
+        return revised;
+  }
+}
