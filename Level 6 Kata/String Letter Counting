@@ -1,0 +1,29 @@
+using System;
+using System.Linq;
+using System.Collections;
+using System.Collections.Generic;
+using System.Text.RegularExpressions;
+public class Kata
+{
+  public static string StringLetterCount(string str)
+  {
+            str = str.ToLower();
+            List<char> list = str.Where(c => char.IsLetter(c)).ToList();
+            SortedList pair = new SortedList();
+            int total = 0;
+            for (int i = 0; i < list.Count; i++)
+            {
+                if (pair.ContainsKey(list[i]) == false)
+                {
+                    total = Regex.Matches(str, list[i].ToString()).Count;
+                    pair.Add(list[i], total);
+                }
+            }
+            str = string.Empty;
+            foreach(DictionaryEntry paired in pair)
+            {
+                str += paired.Value.ToString() + paired.Key;
+            }
+            return str;
+  }
+}
