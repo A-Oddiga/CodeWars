@@ -1,0 +1,60 @@
+using System;
+
+public class Kata
+{
+  public static string NumberFormat(int number)
+  {
+            decimal dnum = Math.Abs(number);
+            string changeNum = dnum.ToString();
+    switch (changeNum.Length)
+            {
+                case 4:
+                    {
+                        changeNum = changeNum.Insert(1, ",");
+                        break;
+                    }
+                case 5:
+                    {
+                        changeNum = changeNum.Insert(2, ",");
+                        break;
+                    }
+                case 6:
+                    {
+                        changeNum = changeNum.Insert(3, ",");
+                        break;
+                    }
+                case 7:
+                    {
+                        changeNum = changeNum.Insert(1, ",");                     
+                        changeNum = changeNum.Insert(5, ",");
+                        break;
+                    }
+                case 8:
+                    {
+                        changeNum = changeNum.Insert(2, ",");
+                        changeNum = changeNum.Insert(6, ",");
+                        break;
+
+                    }
+                case 9:
+                    {
+                        changeNum = changeNum.Insert(3, ",");                  
+                        changeNum = changeNum.Insert(7, ",");
+                        break;
+                    }
+                case 10:
+                    {
+                        changeNum = changeNum.Insert(1, ",");
+                        changeNum = changeNum.Insert(5, ",");
+                        changeNum = changeNum.Insert(9, ",");
+                        break;
+                    }
+
+            }
+            if(number.ToString().Contains('-'))
+            {
+                changeNum = changeNum.Insert(0, "-");
+            }
+            return changeNum;
+  }
+}
