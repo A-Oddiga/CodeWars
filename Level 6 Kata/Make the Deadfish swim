@@ -1,0 +1,41 @@
+using System.Collections.Generic;
+public class Deadfish
+{
+  public static int[] Parse(string data)
+  {
+            List<int> list = new List<int>();
+            int initial = 0;
+            foreach (char command in data)
+            {
+                switch (command)
+                {
+                    case 'i':
+                        {
+                            initial += 1;
+                            break;
+                        }
+                    case 'd':
+                        {
+                            initial -= 1;
+                            break;
+                        }
+                    case 's':
+                        {
+                            initial = initial * initial;
+                            break;
+                        }
+                    case 'o':
+                        {
+                            list.Add(initial);
+                            break;
+                        }
+                    default:
+                        {
+                            break;
+                        }
+                }
+            }
+            int[] numbers = list.ToArray();
+            return numbers;
+  }
+}
