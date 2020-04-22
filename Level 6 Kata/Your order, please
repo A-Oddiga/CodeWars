@@ -1,0 +1,44 @@
+using System;
+using System.Collections.Generic;
+public static class Kata
+{
+  public static string Order(string words)
+  {
+            words = words.Insert(words.Length, " ");
+            List<int> list = new List<int>();
+            List<string> liststr = new List<string>();
+            string renewedWord = string.Empty;
+            foreach (char letter in words)
+            {
+                if (int.TryParse(letter.ToString(), out int k) == true)
+                {
+                    list.Add(k);
+                }
+            }
+            list.Sort();
+            for (int i = 0; i < words.Length; i++)
+            {
+                if(words[i] == ' ')
+                {                  
+                    liststr.Add(renewedWord);
+                    renewedWord = string.Empty;
+                }
+                else
+                {
+                    renewedWord += words[i];
+                }
+            }
+            for (int i = 0; i < list.Count; i++)
+            {
+                for (int k = 0; k < liststr.Count; k++)
+                {
+                    char.TryParse(list[i].ToString(), out char Digit);
+                    if (liststr[k].Contains(Digit))
+                    {
+                        renewedWord += liststr[k] + ' ';
+                    }
+                }
+            }
+          return renewedWord.Trim();
+  }
+}
