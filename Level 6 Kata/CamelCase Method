@@ -1,0 +1,42 @@
+using System;
+using System.Collections.Generic;
+namespace Kata
+{
+  public static class Problem
+  {
+    public static string CamelCase(this string str)  
+    {  
+             if(str == string.Empty)
+            {
+                return str;
+            }
+            else
+            {
+                List<char> list = new List<char>();
+                foreach (char character in str)
+                {
+                    list.Add(character);
+                }
+                list[0] = char.ToUpper(list[0]);
+                for (int i = 1; i < list.Count; i++)
+                {
+                    if (list[i - 1] == ' ')
+                    {
+                        list.Insert(i, char.ToUpper(list[i]));
+                        list.RemoveAt(i + 1);
+                    }
+                }
+                str = string.Empty;
+                foreach (char character in list)
+                {
+                    if (char.IsWhiteSpace(character) == false)
+                    {
+                        str += character;
+                    }
+                }
+            }
+                             
+            return str;
+    }
+  }
+}
