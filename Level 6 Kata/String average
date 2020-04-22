@@ -1,0 +1,45 @@
+using System.Collections.Generic;
+using System.Text.RegularExpressions;
+using System.Linq;
+public class Kata
+{
+  public static string AverageString(string str)
+  {
+            string finalStr = string.Empty;
+            string strTwo = string.Empty;
+            int total = 0;
+            int Count = 0;
+            Dictionary<int, string> pair = new Dictionary<int, string>()
+            {{0, "zero"}, {1, "one"}, {2, "two"}, {3, "three"}, {4, "four"},
+                {5, "five"}, {6, "six"}, {7, "seven"}, {8, "eight"}, {9, "nine"} };
+            for (int i = 0; i < str.Length; i++)
+            {
+                strTwo += str[i];
+                if (str[i] == ' ' || i == str.Length-1)
+                {
+                    if (pair.ContainsValue(strTwo.Trim()) == false)
+                    {
+                        finalStr = "n/a";                       
+                    }
+                    strTwo = string.Empty;
+                }                                                             
+            }
+            foreach (var item in pair)
+            {
+                if (str.Contains(item.Value) && finalStr == string.Empty)
+                {
+                    total += item.Key * Regex.Matches(str,item.Value).Count;
+                    Count += 1 * Regex.Matches(str,item.Value).Count;
+                }
+            }
+            if (Count == 0 && finalStr != string.Empty || str == "")
+            {
+                return "n/a";
+            }
+            else
+            {
+                pair.TryGetValue(total / Count, out finalStr);
+                return finalStr;
+            }
+  }
+}
