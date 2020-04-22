@@ -1,0 +1,24 @@
+using System.Collections.Generic;
+using System.Linq;
+namespace Main{
+
+using System;
+public class Kata
+{
+  public static int[] DataReverse(int[] data)
+  {          
+           List<int> list = data.ToList();
+            int n = list.Count / 8;
+            int follow = 0;
+            for (int i = 0; i < n; i++)
+            {
+                follow += 8;
+                list.Reverse(list.Count - follow, 8);
+               
+            }
+            list.Reverse();
+            data = list.ToArray();
+            return data;
+  }
+}
+}
