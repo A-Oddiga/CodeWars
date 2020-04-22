@@ -1,0 +1,22 @@
+using System.Collections.Generic;
+public class Kata
+{
+  public static string BreakCamelCase(string str)
+  {
+            List<char> list = new List<char>();
+            for (int i = 0; i < str.Length; i++)
+            {
+                if (char.IsUpper(str[i]))
+                {
+                    list.Add(' ');
+                }
+                list.Add(str[i]);
+            }
+            str = string.Empty;
+            foreach (char character in list)
+            {
+                str += character;
+            }
+            return str;
+  }
+}
