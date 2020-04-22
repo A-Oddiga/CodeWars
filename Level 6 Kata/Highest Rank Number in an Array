@@ -1,0 +1,29 @@
+using System.Text.RegularExpressions;
+public class Kata
+{
+  public static int HighestRank(int[] arr)
+  {
+            int num = 0;
+            int numfromArr = 0;
+            string str = string.Empty;
+            for (int i = 0; i < arr.Length; i++)
+            {
+                str += arr[i].ToString();
+                str = str.Insert(str.Length, ",");
+            }
+            str = str.Trim(',');
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (num < Regex.Matches(str, arr[i].ToString()).Count)
+                {                    
+                    num = Regex.Matches(str, arr[i].ToString()).Count;
+                    numfromArr = arr[i];
+                }
+                else if (num == Regex.Matches(str, arr[i].ToString()).Count)
+                {
+                    numfromArr = numfromArr > arr[i] ? numfromArr : arr[i];
+                }
+            }
+            return numfromArr;
+  }
+}
