@@ -1,0 +1,36 @@
+using System;
+using System.Collections.Generic;
+public static class Kata
+{
+  public static bool IsPangram(string str)
+  {
+            List<char> list = new List<char>()           
+            {'a', 'b', 'c', 'd',  'e',  'f', 'g',
+             'h',  'i',  'j',  'k',  'l',  'm',  'n',
+             'o',  'p',  'q',  'r',  's',  't', 'u',
+             'v',  'w',  'x',  'y',  'z' };
+            bool valid = false;           
+            int total = 0;
+            str = str.ToLower();
+            string realString = string.Empty;
+            for (int i = 0; i < str.Length; i++)
+            {
+                for (int k = 0; k < list.Count; k++)
+                {
+                    if (str[i].Equals(list[k]))
+                    {
+                        if(realString.Contains(str[i]) == false)
+                        {
+                            realString += str[i];
+                        }
+                    }
+                }               
+            }
+            foreach (char item in realString)
+            {
+                total += 1;
+            }
+            if (total >= 26) valid = true;
+            return valid;
+  }
+}
